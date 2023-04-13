@@ -1,6 +1,8 @@
 import { AtomWrapper } from "lucy-nxtjs";
+import { Suspense } from "react";
 import BoxWithFC from "./components/BoxWithFC";
 import BottomLeft from "./components/bottomLeft";
+import BottomRight from "./components/bottomRight";
 import TopRight from "./components/topRight";
 import TopLefComponent from "./components/topleft";
 
@@ -30,13 +32,17 @@ function App() {
         <TopLefComponent />
       </AtomWrapper>
       <BoxWithFC>
-        <TopRight />
+        <Suspense fallback="loading">
+          <TopRight />
+        </Suspense>
       </BoxWithFC>{" "}
       <BoxWithFC>
         <BottomLeft />
       </BoxWithFC>
       <BoxWithFC>
-        <h1>dsdfsdf111111111111111</h1>
+        <Suspense fallback="loading">
+          <BottomRight />
+        </Suspense>
       </BoxWithFC>
     </AtomWrapper>
   );

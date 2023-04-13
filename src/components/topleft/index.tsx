@@ -2,12 +2,16 @@ import { css } from "@emotion/react";
 import { atom, useAtom, useSetAtom } from "jotai";
 import { AtomButton, AtomInput, AtomWrapper } from "lucy-nxtjs";
 import { FC, ReactNode } from "react";
+import { TODOLIST_ATOM } from "../bottomLeft";
+import { FETCHUSERS_ATOM } from "../bottomRight";
 
 type Props = {
   children?: ReactNode;
 };
 
-export const IMAGE_ATOM = atom("https://picsum.photos/200/300");
+const URL_DEFAULT = "https://picsum.photos/200/300";
+
+export const IMAGE_ATOM = atom(URL_DEFAULT);
 
 export const NAME_ATOM = atom("Default Name");
 
@@ -90,8 +94,16 @@ const InputProfilePhoto = () => {
     </AtomWrapper>
   );
 };
-const TopLefComponent: FC<Props> = (props) => {
-  const setName = useSetAtom(NAME_ATOM);
+
+const RESET_ATOMS = atom(null, (get, set) => {
+  set(TODOLIST_ATOM, []);
+  set(FETCHUSERS_ATOM, []);
+  set(NAME_ATOM, "Default Name");
+  set(IMAGE_ATOM, URL_DEFAULT);
+});
+
+const TopLefComponent: FC<Props> = () => {
+  const setAtoms = useSetAtom(RESET_ATOMS);
   return (
     <AtomWrapper
       customCSS={(css) => css`
@@ -103,9 +115,7 @@ const TopLefComponent: FC<Props> = (props) => {
       <InputProfilePhoto />
       <AtomWrapper width="auto">
         <InputWriteName />
-        <AtomButton onClick={() => setName("Default Name")}>
-          Clear Name
-        </AtomButton>
+        <AtomButton onClick={() => setAtoms()}>Clear All</AtomButton>
       </AtomWrapper>
     </AtomWrapper>
   );
