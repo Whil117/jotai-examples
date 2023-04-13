@@ -1,5 +1,7 @@
 import { AtomWrapper } from "lucy-nxtjs";
 import BoxWithFC from "./components/BoxWithFC";
+import BottomLeft from "./components/bottomLeft";
+import TopRight from "./components/topRight";
 import TopLefComponent from "./components/topleft";
 
 function App() {
@@ -28,10 +30,10 @@ function App() {
         <TopLefComponent />
       </AtomWrapper>
       <BoxWithFC>
-        <h1>dsdfsdf111111111111111</h1>
+        <TopRight />
       </BoxWithFC>{" "}
       <BoxWithFC>
-        <h1>dsdfsdf111111111111111</h1>
+        <BottomLeft />
       </BoxWithFC>
       <BoxWithFC>
         <h1>dsdfsdf111111111111111</h1>
