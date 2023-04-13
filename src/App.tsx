@@ -1,5 +1,5 @@
 import { AtomWrapper } from "lucy-nxtjs";
-import HeaderComponent from "./components/headerComponent";
+import BoxWithFC from "./components/BoxWithFC";
 import TopLefComponent from "./components/topleft";
 
 function App() {
@@ -21,34 +21,21 @@ function App() {
         customCSS={(css) => css`
           background-color: white;
           height: 100%;
+          align-items: center;
+          justify-content: center;
         `}
       >
         <TopLefComponent />
       </AtomWrapper>
-      <AtomWrapper
-        customCSS={(css) => css`
-          background-color: white;
-          height: 100%;
-        `}
-      >
-        <HeaderComponent />
-      </AtomWrapper>
-      <AtomWrapper
-        customCSS={(css) => css`
-          background-color: white;
-          height: 100%;
-        `}
-      >
-        3
-      </AtomWrapper>
-      <AtomWrapper
-        customCSS={(css) => css`
-          background-color: white;
-          height: 100%;
-        `}
-      >
-        4
-      </AtomWrapper>
+      <BoxWithFC>
+        <h1>dsdfsdf111111111111111</h1>
+      </BoxWithFC>{" "}
+      <BoxWithFC>
+        <h1>dsdfsdf111111111111111</h1>
+      </BoxWithFC>
+      <BoxWithFC>
+        <h1>dsdfsdf111111111111111</h1>
+      </BoxWithFC>
     </AtomWrapper>
   );
 }

@@ -1,5 +1,5 @@
 import { useAtomValue } from "jotai";
-import { AtomText, AtomWrapper } from "lucy-nxtjs";
+import { AtomImage, AtomText, AtomWrapper } from "lucy-nxtjs";
 import { FC, ReactNode } from "react";
 import { IMAGE_ATOM, NAME_ATOM } from "../topleft";
 
@@ -7,18 +7,36 @@ type Props = {
   children?: ReactNode;
 };
 
-const HeaderComponent: FC<Props> = (props) => {
+const WithTitle = () => {
   const name = useAtomValue(NAME_ATOM);
+  return <AtomText fontWeight="bold">{name}</AtomText>;
+};
+const WithImgProfile = () => {
   const profilePhoto = useAtomValue(IMAGE_ATOM);
+
+  return (
+    <AtomImage
+      src={profilePhoto}
+      width="50px"
+      height="50px"
+      borderRadius="50%"
+    />
+  );
+};
+
+const HeaderComponent: FC<Props> = (props) => {
   return (
     <AtomWrapper
       customCSS={(css) => css`
         height: auto;
         display: flex;
-        background-color: #ffdf;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
       `}
     >
-      <AtomText>{name}</AtomText>
+      <WithTitle />
+      <WithImgProfile />
     </AtomWrapper>
   );
 };
