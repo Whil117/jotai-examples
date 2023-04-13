@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
     "dotenv": "^16.0.3",
-    "lucy-nxtjs": "^0.0.69",
+    "jotai": "^2.0.4",
+    "lucy-nxtjs": "^0.0.71",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
